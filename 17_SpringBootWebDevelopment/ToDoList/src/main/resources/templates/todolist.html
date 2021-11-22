@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+</head>
+<body>
+<h3>Список дел(<span th:text="${taskCount}">0</span>)</h3>
+<div th:each="task : ${tasks}">
+  <a th:href="@{/}" class="task-link" th:attr="task-id=${task.id}"
+     th:text="${task.title}"> task </a>
+
+</div>
+
+</body>
+</html>

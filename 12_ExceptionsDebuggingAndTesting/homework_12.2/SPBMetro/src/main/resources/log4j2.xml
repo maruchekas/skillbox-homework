@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="INFO">
+  <appenders>
+
+    <File name="InfoFile" fileName="logs/search.log" immediateFlush="true">
+      <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="ACCEPT"/>
+      <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="ACCEPT"/>
+      <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </File>
+    <File name="WarnFile" fileName="logs/input_errors.log" immediateFlush="true">
+      <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="ACCEPT"/>
+      <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </File>
+    <File name="ExFile" fileName="logs/exceptions.log" immediateFlush="true">
+      <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-3level %logger{36} - %msg%n"/>
+    </File>
+
+  </appenders>
+  <loggers>
+
+
+    <root level="info">
+      <appender-ref ref="InfoFile" level="info"/>
+      <appender-ref ref="WarnFile" level="warn"/>
+      <appender-ref ref="ExFile" level="error"/>
+    </root>
+  </loggers>
+</configuration>
